@@ -11,8 +11,8 @@ Created by Liang Chun
 
 ### Problem 2
 Two things are to prove:
-$$C \subseteq D$$
-$$D \subseteq C$$
+\begin{equation}C \subseteq D\end{equation}
+\begin{equation}D \subseteq C\end{equation}
 
 1. Given $c \in C$, we have $c = 6m$ for $m \in \mathbb{N}$. 
     i. Rewrite this as $c = 2 * (3m)$
@@ -60,7 +60,7 @@ then one such box must contain two socks of the relevant type while drawing fewe
 
 ### Problem 7
 
-$$R = \{(1, 18), (2, 9), (3, 6), (6, 3), (9, 2), (18, 1)\}$$
+\begin{equation}R = \{(1, 18), (2, 9), (3, 6), (6, 3), (9, 2), (18, 1)\}\end{equation}
 
 ### Problem 8
 First find out what is important and what is to ignore. The year is irrelevant and January could be replaced by any other
@@ -68,21 +68,21 @@ month with 31 days. If $i$ and $j \in X$, then evidently $i$ and $j$ represent t
 \begin{enumerate}
 \item
 Reflexive: Yes, because $i$ certainly represents the same day as itself
-$$i - i = 0 \text{ is divisible by 7}$$
+\begin{equation}i - i = 0 \text{ is divisible by 7}\end{equation}
 
 \item
 Symmetric: Yes, if $i$ and $j$ represent the same day of the week, then $j$ and $i$ will do as well
 
-$$\text{if } j - i \text{ is divisible by 7}$$
-$$\text{so } j - i = 7*m $$
-$$\text{and also } i - j = -7m \text{ is divisible by 7}$$
+\begin{equation}\text{if } j - i \text{ is divisible by 7}\end{equation}
+\begin{equation}\text{so } j - i = 7*m \end{equation}
+\begin{equation}\text{and also } i - j = -7m \text{ is divisible by 7}\end{equation}
 
 \item
 Transitive: Yes if $i$ and $j$ represent the same day, and if $j$ and $k$ represent the same day, then $i$ and $k$ is true
 
 Let:
-$$j - i = 7m$$
-$$k - j = 7n$$
+\begin{equation}j - i = 7m\end{equation}
+\begin{equation}k - j = 7n\end{equation}
 
 then,
 \begin{align}
