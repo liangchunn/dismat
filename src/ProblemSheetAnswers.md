@@ -251,3 +251,71 @@ Examples for commutative permutations:
 \sigma \circ id = id \circ \sigma = \sigma \\
 \sigma^{-1} \circ \sigma = \sigma \circ \sigma^{-1} = id
 \end{align}
+
+### Problem 24
+Compute a partial fraction decomposition of the following rational function:
+\begin{align}
+\frac{x + 2}{x^6 + x^4 - x^2 - 1}
+\end{align}
+
+The decomposition of the denominator: Use $1$ as a $0$.
+
+```
+ (x^6 + x^4 - x^2 - 1):(x - 1) = x^5 + x^4 + 2x^3 + 2x^2 + 1
+-(x^6 - x^5)
+        x^5 + x^4
+       -x^5 + x^4 
+             2x^4
+            -2x^4 + 2x^3
+                    2x^3 - x^2
+                   -2x^3 + 2x^2
+                         x^2
+                        -x^2 + x
+                               x - 1
+                              -x + 1
+                                   0
+```
+
+-1 is a zero of the remaining the polynomial:
+
+```
+(x^5 + x^4 + 2x^3 + 2x^2 + x + 1):(x + 1) = x^4 + 2x^2 + 1
+-x^5 - x^4
+             2x^3 + 2x^2
+            -2x^3 - 2x^2
+                           x + 1
+                          -x - 1
+                               0
+```
+
+We can rewrite:
+\begin{equation}
+x^4 + 2x^2 + 1 = (x^2 + 1)^2
+\end{equation}
+
+into:
+\begin{align} 
+&\Rightarrow x^6 + x^4 - x^2 - 1 = (x-1)(x+1)(x^2+1)^2 \\
+&\Rightarrow r(x) = \frac{x+2}{x^6+x^4-x^2-1} = \frac{A}{(x-1)} + \frac{A}{(x+1)} + \frac{Cx + D}{x^2 + 1} + \frac{Ex + F}{(x^2 + 1)^2} \\
+&\Leftrightarrow x + 2 = A(x+1)(x^2+1)^2+B(x-1)(x^2+1)^2\\
+&\phantom{{}=4}+(Cx+D)(x-1)(x+1)(x^2+1)+(Ex + F)(x-1)(x+1) \notag
+\end{align}
+
+Comparision of coeffecients:
+\begin{align}
+x^0&: 1 = A - B - D - F \\
+x^1&: 0 = A + B - C - E \\
+x^2&: 0 = 2A - 2B + F \\
+x^3&: 0 = 2A + 2B + E \\
+x^4&: 0 = A - B + D \\
+x^5&: 0 = A + B + C 
+\end{align}
+
+Use Gaussian Elimination to compuite $A - F$
+\begin{align}
+r(x) = 
+\frac{\frac{3}{8}}{x - 1} 
++ \frac{-\frac{3}{8}}{x + 1} 
++ \frac{-\frac{1}{4}x-\frac{1}{2}}{x^2 + 1}  
++ \frac{-\frac{1}{2}}{(x^2+ 1)^2}
+\end{align}

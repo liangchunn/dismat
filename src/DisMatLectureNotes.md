@@ -534,3 +534,100 @@ Each summand on the right hand sind can now be expanded by means of the geometri
 
 ### Slide 57
 TBD
+
+### Slide 66
+#### Example double counting principle
+![](images/Slide66.pdf)
+\begin{tabular}{|l|l|l|l|l|l|l|}
+\hline
+v\textbackslash{}E & \{1, 2\} & \{1, 4\} & \{4, 3\} & \{3, 2\} & \{4, 2\}  & countSum \\ \hline
+1                  & x        & x        &          &          &           & 2 \\ \hline
+2                  & x        &          &          & x        & x         & 3 \\ \hline
+3                  &          &          & x        & x        &           & 2 \\ \hline
+4                  &          & x        & x        &          & x         & 3 \\ \hline
+                   & 2        & 2        & 2        & 2        & 2         & 10 \\ \hline
+\end{tabular}
+
+### Slide 67
+
+#### Remark to proof 2.1.4
+$|V_0|$ has to be even because:
+
+\begin{tabular}{l|ll}
+t    & even & odd  \\ \hline
+even & even & odd  \\
+odd  & odd  & even
+\end{tabular}
+
+### Slide 69
+![](images/Slide69.pdf)
+
+\begin{tabular}{llll}
+1 & 2 & 3 & 4 \\ \hline
+2 & 1 & 2 & 1 \\
+4 & 3 & 4 & 2 \\
+  & 4 &   & 3
+\end{tabular}
+
+### Slide 70
+#### Example adjacency matrix
+![](images/Slide69.pdf)
+\begin{equation}
+\Bigg(
+\begin{tabular}{cccc}
+0 & 1 & 0 & 1 \\
+1 & 0 & 1 & 1 \\
+0 & 1 & 0 & 1 \\
+1 & 1 & 1 & 0
+\end{tabular}
+\Bigg)
+\end{equation}
+
+#### Another adjacency matrix
+
+![](images/Slide69_A1.pdf)
+![](images/Slide69_A2.pdf)
+
+\begin{equation}
+A_1 = 
+\Bigg(
+\begin{tabular}{ccccc}
+0 & 0 & 1 & 1 & 0 \\
+0 & 0 & 1 & 1 & 1 \\
+1 & 1 & 0 & 0 & 0 \\
+1 & 1 & 0 & 0 & 1 \\
+0 & 1 & 0 & 1 & 0
+\end{tabular}
+\Bigg)
+\end{equation}
+
+\begin{equation}
+A_2 = 
+\Bigg(
+\begin{tabular}{ccccc}
+0 & 1 & 1 & 0 & 0 \\
+1 & 0 & 1 & 1 & 0 \\
+1 & 1 & 0 & 0 & 1 \\
+0 & 1 & 0 & 0 & 1 \\
+0 & 0 & 1 & 1 & 0
+\end{tabular}
+\Bigg)
+\end{equation}
+
+
+### Slide 77
+#### Remarks to the Proof 2.3.3 (No. 2)
+- Here we have the case $\{u, v\} \in E$. So $\{3, 2\} \in E, G' = (V', E')$, $V' = V \cup \{a\}$, $E' = E \cup \{\{2, a\}, \{3, a\}\}$ and a closed Euler line is $(1, 2, a, 3, 4, 2, 3, 1)$
+
+- Here we have the case $\{u, v\} \notin E$. So $\{1, 3\} \notin E$, $G' = (V, E')$, $E' = E \cup \{\{1, 3\}\}$ and a closed Euler line is $(1, 3, 5, 4, 3, 2, 1)$
+
+
+### Slide 78
+#### Example
+![](images/Slide78.pdf)
+
+a. $w = v_0, \quad F = E = \{a, b, c\}$
+b. $deg(v_0, F) = 2 \quad \Rightarrow v_1 \text{ with } \{v_0, v_1\} \in F, W = (v_0, v_1), F = \{b, c\}$
+c. $deg(v_1, F) = 1 \quad \Rightarrow v_2 \text{ with } \{v_2, v_1\} \in F, W = (v_0, v_1, v_2), F = \{c\}$
+d. $deg(v_2, F) = 1 \quad \Rightarrow v_0 \text{ with } \{v_2, v_0\} \in F, W = (v_0, v_1, v_2, v_0), F = \emptyset$
+e. $deg(v_0, F) = 0 \quad \Rightarrow \text{STOP}$
