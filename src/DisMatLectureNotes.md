@@ -367,7 +367,7 @@ can be regarded as saying the the generating function for the sequence defined b
 
 ### Slide 48
 Convolution definition
-\begin{equation}c_k = a_0b_k + a_1b_{k-1} + ... + a_kb_0\end{equation} \\
+\begin{equation}c_k = a_0b_k + a_1b_{k-1} + ... + a_kb_0\end{equation} 
 
 #### Example
 Given
@@ -396,4 +396,141 @@ Geometrical Series
 &= 1 + \sum_{k=1}^{\infty} x^k - \sum_{k=1}^{\infty} x^k = 1
 \end{align}
 
-So $(1-x)$ is inverse to the geometrical series and we get $\sum_{k=0}^{\infty} x^k = \frac{1}{1-x}$
+So $(1-x)$ is inverse to the geometrical series and we get $\sum_{k=0}^{\infty} x^k = \frac{1}{1-x}$\
+
+Here are some more generating functions:
+\begin{align}
+\sum_{k=0}^{\infty} (-1)^kx^k \\
+&= 1 - x + x^2 - x^3 + ...\\
+&\hat{=} (1, -1, 1, -1, ...)
+\end{align}
+
+\begin{align}
+\sum_{k=0}^{\infty} x^2k \\
+&= 1 + x^2 + x^4 + x^6 + ... \\
+&\hat{=} (1, 0, 1, 0, 1, ...)
+\end{align}
+
+
+### Slide 52
+\begin{equation}F_n = F_{n-1} + F_{n-2}\end{equation}
+The above equation is a homogeneous (no constants) linear recursion equation of second order (going back 2 steps)
+
+### Slide 53
+#### Example: Fibonacci Numbers
+The main idea now is to expand the right series as a formal power series. To do this we factorize the denominator. We put:
+
+\begin{equation}
+1-x-x^2 = (1-ax)(1-bx)
+\end{equation}
+
+If we substitute $x = \frac{1}{y}$, equation (2) is equivalent to 
+
+\begin{align}
+1 - \frac{1}{y} - \frac{1}{y^2} &= (1 - \frac{a}{y})(1-\frac{b}{y})\\ 
+&\Leftrightarrow y^2 - y - 1 \\
+&= (y-a)(y-b)
+\end{align}
+
+\begin{align}
+y_{1, 2} &= \frac{1}{2} + \sqrt{\frac{1}{4} + 1} \\
+&= \frac{1}{2} + \frac{\sqrt{5}}{2}
+\end{align}
+
+The zeroes of $y^2 - y - 1$ are:
+\begin{equation}
+a = \frac{1}{2} + \frac{\sqrt{5}}{2}, \quad b = \frac{1}{2} - \frac{\sqrt{5}}{2}
+\end{equation}
+
+Now we decompose into partial fractions
+\begin{equation}
+\frac{1+x}{1-x-x^2} = \frac{\alpha}{(1-ax)} + \frac{\beta}{(1-bx)}
+\end{equation}
+
+\begin{align}
+1 + x &= \alpha(1-bx) + \beta(1-ax) \\
+1 + x &= \alpha + \beta + (-\alpha b - \beta a)x \\
+&\Rightarrow \alpha + \beta = 1 ,\quad -\alpha b - \beta a = 1 \\
+&\Rightarrow \alpha = \frac{1+a}{-b+a} = \frac{1+a}{\sqrt{5}}, \quad \beta = 1 - \frac{1+a}{\sqrt{5}} = -\frac{1+b}{\sqrt{5}}\end{align}
+
+Each summand from the right hand side is now expanded by the sum rule for the geomtrical series:
+\begin{align}
+\Rightarrow \frac{1+x}{1-x-x^2} &= \frac{1+a}{\sqrt{5}(1-ax)} - \frac{1+b}{\sqrt{5}(1-bx)} \\
+&= \frac{1+a}{\sqrt{5}} \sum_{k=0}^{\infty}{a^kx^k} - \frac{1+b}{\sqrt{5}} \sum_{k=0}^{\infty}{b^kx^k} \\
+&= \sum_{k=0}^{\infty}{\bigg[\frac{1+a}{\sqrt{5}} a^k - \frac{1+b}{\sqrt{5}} b^k\bigg]} x^k \\
+&\Rightarrow F_k = \frac{a^{k+2}}{\sqrt{5}} - \frac{b^{k+2}}{\sqrt{5}} \quad (1 + a = a^2, 1+b=b^2)
+\end{align}
+
+We can then compute the specific numbers $k$ in $F_k$:
+\begin{align}
+F_2 &= \frac{(\frac{1}{2} + \frac{\sqrt{5}}{2})^4}{\sqrt{5}} - \frac{(\frac{1}{2} + \frac{\sqrt{5}}{2})^4}{\sqrt{5}} \\
+&= 3
+\end{align}
+
+
+### Slide 54
+#### Special case: Fibonacci numbers
+
+\begin{equation}
+F_n = F_{n-1} + F_{n-2}
+\end{equation}
+
+So we have $k = 0$, $h_k = 0$, $\beta_1 = -1$, $\beta_2 = -1$, $\beta_j = 0$ for $3 \leq j \leq n$
+
+### Slide 55
+#### Remark on the proof 1.10.5
+
+\begin{equation}
+p_{n+k} = \sum_{j=0}^{n}{a_{n+k-j}\beta_j} = 0, \quad \forall k \geq 0
+\end{equation}
+
+\begin{align}
+A(x) &= a_0 + a_1x + a_2x^2 + ... \\
+A(x) &= \sum_{j=0}^{n}{\beta_{j}x^j} \\
+&= a_0\beta_0x^0 + (a_0\beta_1 + a_1\beta_0)x^1 + (a_0\beta_2+a_1\beta_1+a_2\beta_0)x^2 + ... \\
+&= \underbrace{(a_0\beta_n + a_1\beta_{n-1} + ... + a_n\beta_0)}_\text{$=0$ due to recursion formula} x^n 
+\end{align}
+
+At first we substitute in the equation $1+\beta_1x+\beta_2x^2+...=0$
+
+After multiplication by $y^n$ we get the auxiliary equation:
+\begin{equation}y^n+\beta_1y^{n-1}+...+\beta_n = 0\end{equation}
+
+According to the fundemental theorem of algebra, there exists numbers:
+\begin{equation}y_1,...,y_5 \in \mathbb{C}\end{equation} 
+such that:
+\begin{equation}y^n+\beta_1y^{n-1} + ... + \beta_n = (y - y_1)^{m_1}(y-y_2)^{m_2} \dot ... \dot (y-y_5)^{m_5}\end{equation}
+and
+\begin{equation}\sum_{j=0}^{5}{m_j} = n\end{equation}
+
+By back substituting, we have:
+
+\begin{align}
+1+\beta_1x + \beta_2x^2 + ... + \beta_nx^n &= x^n(y^n+\beta_1y^{n-1} + ... + \beta{n}) \\
+&= x^n(y-y_1)^{m_1}(y-y_2)^{m_2}...(y-y_5)^{m_5} \\
+&= x^n(\frac{1}{x} - y_1)^{m_1}(\frac{1}{x} - y_2)^{m_2}...(\frac{1}{x} - y_5)^{m_5} \\
+&= (1-y_1x)^{m_1}(1-y_2x)^{m_2}...(1-y_5)^{m_5}
+\end{align}
+
+So:
+\begin{align}
+A(x) = \frac{P(x)}{(1-y_1x)^{m_1}(1-y_2x)^{m_2}...(1-y_5)^{m_5}}
+\end{align}
+
+According to the theorem of partial fraction decomposition, it holds:
+\begin{equation}
+A(x) = \sum_{k=1}^{5}{\frac{H_k(x)}{(1-y_kx)^{m_k}}}
+\end{equation}
+
+with polynomial $H_k$ and $deg(H_k) < m_k$.
+
+Futhermore for each summand holds (omitting index $k$) due to partial fraction decomposition: 
+
+\begin{equation}
+\frac{H(x)}{(1-\beta x)^{m}}  = \sum_{j=1}^{m}{\frac{\gamma_j}{(1-\beta x)^j}}, \quad \gamma_j \in \mathbb{R}
+\end{equation}
+
+Each summand on the right hand sind can now be expanded by means of the geometrical series into a power series.
+
+### Slide 57
+TBD

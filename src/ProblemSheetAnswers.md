@@ -121,3 +121,133 @@ Following the double counting principle $R \subseteq R * G$ is the relation defi
 &= | G | * 8  \\
 &= 20
 \end{align}
+
+
+### Problem 11
+- Without any restrictions: $26^4 = 456976$ possibilities
+- Without "b": $25^4 = 390652$ possibilities
+
+Gaining a feeling for properties of numbers: A change from 26 to 25, $\frac{1}{25} \approx 4\%$ causes a decrease of roughly 14.5%
+
+### Problem 12
+- $i, j, k > 0$ otherwise a pasty would hold an absolute majority
+- It holds $k=151-i-j$, so in fact we only have two variables
+- If $i = 1 \Rightarrow (j, k) = (75, 75)$
+- If $i = 2 \Rightarrow (j, k) = (75, 74), (74, 75)$ 
+- If $i = 3 \Rightarrow (j, k) = (75, 73), (74, 74), (73, 75)$ 
+- If $i = 75 \Rightarrow (j, k) = (75, 1), (74, 2), ..., (1, 75)$
+
+The combined probability using the sum rule:
+\begin{equation}
+\sum_{i=1}^{n}{i} = \frac{n(n-1)}{2}, \quad n\in\mathbb{N} 
+\end{equation}
+\begin{equation}
+\sum_{i=1}^{75}{i} = \frac{75 * 76}{2} = 2850
+\end{equation}
+
+### Problem 13
+a. Initially invite the 3 particular friends. This can only be done in 1 way. Now you need to invite $3 = 6 - 3$ friend from the remaining $7 = 10 - 3$. This can be done in $C(7,3) = 35$ ways.
+b. Remove 3 friends which leaves 7 friends remaining, then choose 6 out of the 7 ($C(7, 6) = C(7, 1) = 7$ ways)
+
+### Problem 14
+a. We have in total $n = 10 + 4 = 14$ people, because we have a round table, there are $13!$ possible arrangements. 
+
+b. Since all the 4 girls sit together, we can group them into together and consider them as a single girl. Then $n = 10 + 1 = 11$ is the total number of people. The people can be seated at a round table in $10!$ ways. The girls can be arranged among themselves in $4!$ ways. In total we have $10!4! = 87091200$ possibilities.
+
+c. Hence, let's initially arrange the 10 boys: $9!$ possibilities. Now there are $10$ positions left to place the 4 girls so that no two girls sit together. In addition, we have to take into consideration the possibilities to order the girls. $\Rightarrow 9!*C(10,4)*4!$
+
+### Problem 15
+If the elements of $X$ are listed $X = \{x_1, ..., x_m\}$ then there are two choices for $f(x_1)$, two choices for $f(x_2)$ and so on. 
+Moreover the choices are independent in the sense that for $i \neq j$, the choice for $x_i$ does not affect and is not affected by the choice for $x_j$. $\Rightarrow |F| = 2^m$ 
+
+### Problem 16
+Let $Y$ be a set with 8 elements. The set $X$ of subsets of $Y$ has $2^8 = 256$ elements due to lemma 1.3.2. The set $W$ of subsets of $X$ has $2^{256} \approx 1.157 \times 10^7$ elements.
+
+### Problem 17
+The expression on the left hand side is the sum of the numbers of $r$-subsets of an $n$-set taken over all possible values of $r$, hence the left hand side is equal to the total number of subsets of an $n$-set according to lemma 1.3.2, this is $2^n$.
+
+### Problem 18
+\begin{align}
+A &\hat{=} \text{ students that can read French (47)} \\
+B &\hat{=} \text{ students that can read German (35)} \\ 
+C &\hat{=} \text{ students that can read Russian (20)}
+\end{align}
+
+a. By using corollary 1.2.6, we know the number of students that can read French or German or both as $|A \cup B| = |A| + |B| - |A \cap B| = 47 + 35 - 23 = 59$. $\Rightarrow$ Number of students that can read neither language: $67-59 = 8$
+
+b. \begin{align} |A \cup B \cup C| &= |A| + |B| + |C| + (|A \cap B| + |B \cap C| + |B \cap C|) + |A \cap B \cap C|\\
+&=47+35+20-23-12-11+5 \\
+&=61
+\end{align}
+
+### Probelm 22
+The problem can be formulated as : find the number of the surjections from a set of 11 places to the set $\{M, I, S, P\}$ such that 4 of the places are mapped to $I$, $4$ to $S$, $2$ to $P$, and $1$ to $M$.
+
+Multinomial number:
+\begin{equation}
+\Big(
+\begin{tabular}{c}
+11 \\
+4,4,2,1
+\end{tabular}
+\Big) = \frac{11!}{4!\times4!\times2!\times1!}
+\end{equation}
+
+### Problem 23 
+
+\begin{align}
+\sigma &= (1, 6, 3, 4, 2, 5) \\
+&= (1,5) \circ (1, 2) \circ (1, 4) \circ (1, 3) \circ (1, 6) \\
+&= (1,6) \circ (6,3) \circ (3, 4) \circ (4, 2) \circ (2,5)
+\end{align}
+
+Counters Example:
+\begin{align}
+(1, 5) \circ (1, 2) \circ (1, 4) \circ (1, 6) \circ (1, 3), \quad 1 \mapsto 3
+\end{align}
+
+Disjoint: $\tau$ only moves elements that $\sigma$ fixed and vice versa.
+
+$\Rightarrow$ The used permutations are not disjoint in both representations, so they must not commute (commutative).
+
+Not disjoint, but commutative:
+
+\begin{align}
+\sigma = \Big(
+\begin{tabular}{cccc}
+1 & 2 & 3 & 4 \\
+2 & 1 & 4 & 3
+\end{tabular}
+\Big)
+\quad
+\tau = \Big(
+\begin{tabular}{cccc}
+1 & 2 & 3 & 4 \\
+3 & 4 & 1 & 2
+\end{tabular}
+\Big)
+\end{align}
+
+To check if they are commutative ($\sigma \circ \tau = \tau \circ \sigma$):
+
+\begin{align}
+\sigma \circ \tau = \Big(
+\begin{tabular}{cccc}
+1 & 2 & 3 & 4 \\
+4 & 3 & 2 & 1
+\end{tabular}
+\Big)
+\quad
+\tau \circ \sigma = \Big(
+\begin{tabular}{cccc}
+1 & 2 & 3 & 4 \\
+4 & 3 & 2 & 1
+\end{tabular}
+\Big)
+\end{align}
+
+Examples for commutative permutations: 
+\begin{align}
+\sigma \circ id = id \circ \sigma = \sigma \\
+\sigma^{-1} \circ \sigma = \sigma \circ \sigma^{-1} = id
+\end{align}
