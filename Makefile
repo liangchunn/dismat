@@ -3,5 +3,4 @@ all:
 		then \
 			mkdir out; \
 	fi
-	@ pandoc ./src/DisMatLectureNotes.md -s -o ./out/DisMatLectureNotes.pdf
-	@ pandoc ./src/ProblemSheetAnswers.md -s -o ./out/ProblemSheetAnswers.pdf
+	@ cd src && pandoc DisMatLectureNotes.md -s -o ../out/DisMatLectureNotes.pdf && pandoc ProblemSheetAnswers.md -s -o ../out/ProblemSheetAnswers.pdf
