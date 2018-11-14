@@ -1,6 +1,7 @@
 # Discrete Mathematics Problem Sheet Answers (WS18/19)
 Created by Liang Chun
 
+## Problem Sheet 1
 ### Problem 1
 1. {$n \in N$ | n is a multiple of 2}
 2. {$n \in N$ | $n^2 <  21$}
@@ -319,3 +320,122 @@ r(x) =
 + \frac{-\frac{1}{4}x-\frac{1}{2}}{x^2 + 1}  
 + \frac{-\frac{1}{2}}{(x^2+ 1)^2}
 \end{align}
+
+### Problem 25
+Let $U(x)$ be the generating function for the sequence $u_n$. Using the initial values of $u_0$, $u_1$, and the equation for $u_{n+2}$, $n \geq 0$, we have: 
+\begin{align}
+U(x) &= u_0 + u_1x^1 + u_2x^2 + u_3x^3 + ... \\
+&= 0 + x + \sum_{n=2}^{\infty}{u_nx^n} \\
+&= x + \sum_{n=0}^{\infty}{u_{n+2}x^{n+2}} \\
+&= x + \sum_{n=0}^{\infty}{(5u_{n+1} - 6u_n)x^{n+2}} \\
+&= x + 5x\Bigg(\sum_{n=0}^{\infty}{u_nx^n - u_0x^0}\Bigg) - 6x^2\Bigg(\sum_{n=0}^{\infty}{u_nx^n}\Bigg) \\
+U(x) &= x + 5xU(x) - 6x^2U(x) \\
+&\Rightarrow U(x) = \frac{x}{1-5x+6x^2}
+\end{align}
+
+(46) We need to split the sums so that the indexes are equal to it's exponents
+(48) Move $5x$ out, and subtract by $u_0x^0$ since we decreased the index
+
+The main idea now is to expand the right hand side as a formal power series.. To do this we factorize the denominators:
+
+\begin{align}
+1 - 5x + 6x^2 &= (1-\alpha x)(1-\beta x) \\
+1 - 5\frac{1}{y}+6\frac{1}{y^2} &= (1 - \frac{\alpha}{y})(1 - \frac{\beta}{y}) \quad \text{(sub $x = \frac{1}{y}$)} \\
+y^2 - 5y + 6 &= (y - \alpha)(y-\beta) \quad \text{(mult $y^2$)} \\
+y_{1, 2} &= \frac{5}{2} \pm \sqrt{\Big(\frac{5}{2}\Big)^2 - 6} = \frac{5}{2} \pm \frac{1}{2} \\
+y_1 &= \alpha = 3, \quad y_2 = \beta = 2 \\
+&\Rightarrow 1- 5x + 6x^2 = (1 - 3x)(1 - 2x)
+\end{align}
+
+Decompose into partial fractions:
+
+\begin{align}
+\frac{x}{1-5x+6x^2} &= \frac{A}{1-3x} + \frac{B}{1-2x} \\
+x &= A(1-2x) + B(1-3x)
+\end{align}
+
+Now we need to compare the coefficients: 
+\begin{align}
+0 = A + B&, \quad 1 = -2A - 3B \\
+A = -B&, \quad 1 = 2B - 3B = -1B \\
+A = 1&, \quad B = -1 
+\end{align}
+
+Substituting $A$, and $B$ into U(x):
+\begin{align}
+U(x) &= \frac{1}{1-3x} - \frac{1}{1-2x} \\
+&= \sum_{n=0}^{\infty}{(3x)^n} - \sum_{n=0}^{\infty}{(2x)^n} \\
+&= \sum_{n=0}^{\infty}{(3^n - 2^n)x^n} \\
+\end{align}
+
+Therefore, the generating function is:
+\begin{align}
+&\Rightarrow u_n = 3^n - 2^n
+\end{align}
+
+### Problem 26
+
+a. $p_n = 5a_n$
+\begin{align}
+    P(x) &= p_0 + p_1x + p_2x^2 + ... \\
+    &= 5a_0 + 5a_1x + 5a_2x^2 + ...\\
+    &= 5A(x)
+\end{align}
+
+b. $q_n = 5 + a_n$
+\begin{align}
+    P(x) &= q_0 + q_1x + q_2x^2 + ... \\
+    &= (a_0 + 5) + (a_1 + 5)x + (a_2 + 5)x^2 + ... \\
+    &= a_0 + a_1 + a_2x^2 + ... + 5 + 5x + 5x^2 + ...\\
+    &= A(x) + \frac{5}{1-x}
+\end{align}
+
+c. $r_n = a_{n+5}$
+\begin{align}
+R(x) &= r_0 + r_1x + r_2x^2 + ... \\
+&= a_5 + r_6x + r_7x^2 + ...\\
+&= \frac{\overbrace{(a_0 + a_1x + a_2x^2 +...)}^\text{$A(x)$} - (a_0+ a_1x + a_2x^2 + a_3x^3 + a_4x^4)}{x^5}
+\end{align}
+
+d. $h_n =
+\begin{cases}
+    a_{n-5}, & \text{if } n \geq 5\\
+    0, & \text{else } 
+\end{cases}$
+
+\begin{align}
+H(x) &= h_0 + h_1x + h_2x^2 + ... \\
+&= 0 + 0 + 0 + 0 + 0 + a_0x^5 + a_1x^6 + .... \\
+&= x^5(a_0 + a_1x + a_2x^2 + ..) \\
+&= x^5A(x)
+\end{align}
+
+### Problem 27
+1. We already know that $(1, 1, 1, 1, 1, 1,...)$ has the generating function 
+\begin{equation}
+    \frac{1}{1-x}
+\end{equation}
+
+2. Use the substitution $2x$ for $x$ $\Rightarrow(1, 2, 4, 8, ...)$ with the generating function 
+\begin{equation}
+    \frac{1}{1-2x}
+\end{equation}
+
+3. Use the substitution $x^2$ for $x$ $\Rightarrow(1, 0, 2, 0, 4, 0, ...)$ with the generating function 
+\begin{equation}
+    \frac{1}{1-2x^2}
+\end{equation}
+4. Now we need to shift all the elements in the sequence one place to the right $\Rightarrow(0, 1, 0, 2, 0, 4, ...)$ by multiplying it by $x$:
+\begin{equation}
+    \frac{x}{1-2x^2}
+\end{equation}
+5. Now we add the two sequences from (3) and (4) to get our generating function 
+\begin{equation}
+    \frac{1}{1-2x^2} + \frac{x}{1-2x^2}
+\end{equation}
+
+### Problem 28
+1. There are $2 * 4 + 1$ final outcomes: $G, 1H, 1L, 2H, 2L, 3H, 3L, 5H, 4L$ 
+2. The decision tree is ternary, since these are three possible results of each decision.
+
+![](images/Exercise28.pdf)

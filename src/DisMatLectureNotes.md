@@ -532,8 +532,14 @@ Futhermore for each summand holds (omitting index $k$) due to partial fraction d
 
 Each summand on the right hand sind can now be expanded by means of the geometrical series into a power series.
 
+## Lecture 4 (7.11.2018)
+
 ### Slide 57
-TBD
+The number of possibilities for the leaves are:
+
+![](images/Slide57.pdf)
+
+For example: $CCVCC: 19 * 20 * 6 * 19 * 20$
 
 ### Slide 66
 #### Example double counting principle
@@ -631,3 +637,77 @@ b. $deg(v_0, F) = 2 \quad \Rightarrow v_1 \text{ with } \{v_0, v_1\} \in F, W = 
 c. $deg(v_1, F) = 1 \quad \Rightarrow v_2 \text{ with } \{v_2, v_1\} \in F, W = (v_0, v_1, v_2), F = \{c\}$
 d. $deg(v_2, F) = 1 \quad \Rightarrow v_0 \text{ with } \{v_2, v_0\} \in F, W = (v_0, v_1, v_2, v_0), F = \emptyset$
 e. $deg(v_0, F) = 0 \quad \Rightarrow \text{STOP}$
+
+## Lecture 5 (14.11.2018)
+
+### Slide 87
+#### The principle of induction
+
+Suppose that P(n) is a statement with the following properties:
+
+a. $P(1)$ is true (induction basis)
+b. if $P(k)$ is true (induction hypothesis), then $P(k+1)$ is true (induction step) $\forall k \in \mathbb{N}$,
+then $P(n)$ is true $\forall n \in \mathbb{N}$
+
+##### Example
+Prove that $\forall n \in \mathbb{N}$, $n^3 + 5n$ is a multiple of 6:
+
+a. $P(1)$ is true: $1^3 + 5*1 = 6$  is a multiple of 6
+b. Suppose that $P(k)$ is true, that is $k^3 + 5k = 6m$, $m \in \mathbb{N}$. We have to deduce that $P(k+1)$ is true.
+
+Inserting 
+\begin{align}
+n &= k + 1:  (k+1)^3 + 5(k+1) \\
+&= k^3 + 3k^2 + 3k + 1 + 5k + 5
+\end{align}
+
+In order to use the assumption, we rewrite this as follows:
+\begin{align}
+(k^3 + 5k) + 3(k^2 + k + 2 ) = 6m + 3k(k+1) + 6 
+\end{align}
+
+Now $k(k+1)$ is an even number, say:
+\begin{align}
+2r \Rightarrow 4m + 3k(k+1) + 6 &= 6m + 6r + 6\\
+&= 6(m + r + 1)
+\end{align}
+
+We have shown that $P(1)$ is true, and that is $P(k)$ is true, then $P(k+1)$ is true.
+Applying the principle of induction, it follows that $P(n)$ is true $\forall n \in \mathbb{N}$
+
+### Slide 89
+#### Example: Generic Algorithm
+
+![](images/Slide89.pdf)
+
+a. $W = \{v_1\}, \quad F = \emptyset, \quad L = \{(v_1, v_2), (v_1, v_4), (v_1, v_3)\}$ (Choose $(v_1, v_2)$)
+b. $W = \{v_1, v_2\}, \quad F = \{\{v_1, v_2\}\}, \quad L = \{(v_2, v_4), (v_1, v_4), (v_1, v_3)\}$ (Choose $(v_1, v_4)$)
+c. $W = \{v_1, v_2, v_4\}, \quad F = \{\{v_1, v_2\}, \{v_1, v_4\}\}, \quad L = \{(v_1, v_3), (v_4, v_3)\}$ (Choose $(v_1, v_3)$)
+d. $W = \{v_1, v_2, v_4, v_3\}, \quad F = \{\{v_1, v_2\}, \{v_1, v_4\}, \{v_1, v_3\}\}, \quad L = \emptyset$
+
+### Slide 94
+
+Edge table:
+\begin{tabular}{llllllll}
+a   & b    & c   & d   & e & f & g   & h  \\ \hline
+bdh & acde & bdg & abc & b & g & cfh & ag
+\end{tabular}
+
+#### Example: BFS
+![](images/Slide94BFS.pdf)
+
+#### Example: DFS
+![](images/Slide94DFS.pdf)
+
+
+### Slide 99
+#### Example: Prim's Algorithm
+![](images/Slide99.pdf)
+
+Start with node $z = a$
+
+a. add $\{a, e\}$ with cost 1
+b. add $\{a, b\}$ with cost 2
+c. add $\{b, d\}$ with cost 3
+d. add $\{b, c\}$ with cost 7
+
