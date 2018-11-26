@@ -711,3 +711,66 @@ b. add $\{a, b\}$ with cost 2
 c. add $\{b, d\}$ with cost 3
 d. add $\{b, c\}$ with cost 7
 
+
+
+## Lecture 6 (21.11.2018)
+
+### Slide 103
+#### Example Dijkstra's Algorithm
+
+![](images/Slide103.pdf)
+
+
+- $W = \{z\},\quad F = \emptyset,\quad L(W,V) = \{(z,a),(z,b)\}$
+    - $d(z) + w(\{z, a\}) = 0 + 3$ 
+    - $d(z) + w(\{z, b\}) = 0 + 1$
+        - Choose $(z,b)$
+- $W = \{z, b\},\quad F = \{\{z, b\}\},\quad L(W,V)=\{(z,a),(b,a)\}$ 
+    - $d(z) + w(\{z, a\}) = 0 + 3$
+    - $d(b) + w(\{b, a\}) = 1 + 1$
+        - Choose $(b, a)$
+- $W = \{z, b, a\},\quad F = \{\{z, b\}, \{b, a\}\},\quad L(W,V)=\{(a,c)\}$ 
+    - $d(a) + w(\{a, c\}) = 2 + 2$
+- $W = \{z, b, a, c\},\quad F = \{\{z, b\}, \{b, a\}, \{a, c\}\},\quad L(W,V)=\emptyset$ 
+
+
+### Slide 104
+### Remarks to Proof
+
+Per definition, $d(u) = l((z,..., u))$
+\begin{equation} 
+d(u) + w(e) \geq d(x) + w(\{x, y\})
+\end{equation}
+is true because we have chosen $\{x, y\} \in L(W,V)$ such that 
+\begin{equation} 
+d(x) + w(\{x, y\}) \leq d(u) + w(\{u, v\}),\quad \forall (u, v) \in L(W,V)
+\end{equation}
+
+### Slide 105
+### Example: Difference between Prim and Dijsktra
+
+![](images/Slide105.pdf)
+
+
+#### Prim
+$\{\{z, b\}, \{b, a\}, \{a, c\}\}$
+
+![](images/Slide105_Prim.pdf)
+
+
+#### Dijsktra
+$\{\{z, b\}, \{z, a\} \text{ or } \{b, a\}, \{a, c\}\}$
+
+![](images/Slide105_Dijsktra.pdf)
+
+
+
+### Slide 107
+
+TODO
+
+
+### Slide 111
+
+#### Remarks to the Proof 2.6.5 with |D| = 1
+
