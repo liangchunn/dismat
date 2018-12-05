@@ -766,11 +766,88 @@ $\{\{z, b\}, \{z, a\} \text{ or } \{b, a\}, \{a, c\}\}$
 
 
 ### Slide 107
-
 TODO
 
 
 ### Slide 111
-
 #### Remarks to the Proof 2.6.5 with |D| = 1
+![](images/Slide111.pdf)
+
+1. Add one node (4)
+2. Add edge to node (4) from 1, 2, and 3
+3. $d \geq |A| - |N(A)|$, because $d = max\{|A| - |N(A)|: A \subseteq X\}$
+
+
+
+### Slide 115
+![](images/Slide115_1.pdf)
+
+- Matching = $\{\{1, b\}, \{2, a\}\}$
+- Start witjh node (3)
+
+
+![](images/Slide115_2.pdf)
+
+- $\Rightarrow X_1 = \{1, 2, 3\}$
+- 
+$\Rightarrow Y_1 = \{a, b, c\}$
+
+### Slide 116
+#### Example
+
+![](images/Slide116_1.pdf)
+
+Corresponding BFS-tree: (*) Set $Z := X \textbackslash X_M$
+- Start with non connected nodes:
+- Traverse back, we can only go through matching edges
+
+![](images/Slide116_2.pdf)
+
+We find the alternating path $P = (5, d, 4, b)$. 
+From this we obtain the improved and complete matching $M = \{\{1,c \},\{2, a\}, \{3, e\}, \{4, b\}, \{5, d\}\}$
+
+
+### Slide 120
+#### Example
+
+![](images/Slide120.pdf)
+
+- For node $a$, the inflow is $4 + 0$, and the outflow is $4,$ therefore it is valid
+- For the whole diagram, the inflow is the same as the outflow.
+
+
+
+### Slide 122
+#### Remark to 2.7.4 (with diagarm reference of Slide 120)
+
+We use the example with $T = \{a, b, t\}$
+
+\begin{align}
+\text{inflow}(t) &= in(t) - 0 + in(a) - out(a) + in(b) - out(b) \\
+&= f_{ab} + f+{bt} - 0 + f_{sa} + f_{ba}  - f_{at} + f_{sb} - f_{ba} - f_{bt} \\
+&= f_{sa} + f_{sb}
+\end{align}
+
+\newpage
+
+### Slide 123
+#### Augmenting Path
+
+$D_f:$
+
+![](images/Slide123_1.pdf)
+
+\begin{equation}P = (s, b, t)\end{equation}
+
+\begin{equation}
+s \stackrel{2}{\mapsto} b \stackrel{4}{\mapsto} t \Rightarrow \alpha_1 = 2, \text{therefore } \delta = 2
+\end{equation}
+
+New admissable flow:
+
+![](images/Slide123_2.pdf)
+
+$D_f:$
+
+![](images/Slide123_3.pdf)
 

@@ -513,7 +513,7 @@ Conjecture:
 
 Induction basis:
 \begin{equation}
-\sum_{r=1}^{1}{r^3} = \Bigg(\frac{1(1+1)}{2}\Big)^2
+\sum_{r=1}^{1}{r^3} = \Bigg(\frac{1(1+1)}{2}\Bigg)^2
 \end{equation}
 
 Induction assumption:
@@ -535,3 +535,182 @@ Induction step:
 $\Rightarrow$ Induction basis and the induction step are true
 
 $\Rightarrow$ This means the formula is true $\forall n \in \mathbb{N}$
+
+
+### Exercise 6
+
+a. No, there is only one odd value, whereas any graph must not have an even number of vertices with odd degree.
+b. No there are five vertices. Three of them have 4, which means that each of them must be adjacent to every other vertex. Hence each vertex must have at least degree of three
+c. ![](images/Exercise0206c.pdf)
+d. No, there are four vertices so none of them can have degree 4.
+
+### Exercise 7
+Components with vertex sets: $\{a, f, i, j\} \quad \{b, c, g, e\} \quad \{d, h\}$
+
+### Exercise 8
+
+$G := \text{graph that looks like N}$
+
+$\overline{G} := \text{graph that looks like Z}$
+
+### Exercise 9
+Let $G$ and $H$ be isomorphic graphs due to the isomorphism $f: V(G) \rightarrow V(H)$. We will agrue that $f$ also leads to the face that $\overline{G}$ and $\overline{H}$ are isomorphic. 
+
+Since $f$ is a one-to-one correspondence between $V(G)$ and $V(H)$, we need to show that for each pair of vertices $x, y \in V(\overline{G})$ it is true that $xy \in E(\overline{G})$ if and only if $f(x)f(y) \in E(\overline{H})$.
+
+Let $x, y \in V(\overline{G})$, then $x, y \in V(G)$. Since $f$ leads to an isomorphism between $G$ and $H$: $x, y \in E(\overline{G})$ iff   $x, y \notin E(G)$ iff $f(x)f(y) \notin E(H)$ iff $f(x)f(y) \in E(\overline{H})$
+
+### Exercise 10
+
+![](images/Exercise0210.pdf)
+
+Suppose G is disconnected. Suppose $v, w \in V(G)$. If $vw \notin E(G) \Rightarrow vw \in E(\overline{G})$. So we have a path from $v$ to $w$ in $\overline{G}$.
+
+On the other hand if $vw \in E(G)$, this means that $v$ and $w$ are in the same component of $G$. Since $G$ is disconnected, we can find a vertex in a different component, so that neither $uv$ or $uw$ are edges of $G \Rightarrow u,w \quad u,v \in E(\overline{G}) \Rightarrow (v, u, w)$ is a path from $v$ to $w$ in $\overline{G}$.
+
+This shows that any two vertices in $\overline{G}$ have a path connecting them, so $\overline{G}$ is \textbf{connected}.
+
+### Exercise 11
+The complement of such a graph is a regular graph with 7 vertices and degree 2.
+
+### Exercise 12
+
+![](images/Exercise0212.pdf)
+
+Not all vertices are reached $\Rightarrow$ not connected
+
+### Exercise 13
+#### Prim's Algorithm
+$W := \{X\}$
+
+Four possible outcomes: 
+
+![](images/Exercise0213.pdf)
+
+
+
+<!-- ### Exercise 14
+Use Dijsktra's Algorithm and start with $W:=\{A\}, \quad F = \emptyset$
+
+1. $F = \{\{A, D\}\}$
+2. $\text{min}\{AB, AC, AE, DE+3, 3+DB, 3+DC, 3+DF\} = \text{min}\{5, 8, 4, 9, 7, 4, 6, 9\} = 4$
+3.  -->
+
+### Exercise 15
+
+![](images/Exercise0215.pdf)
+
+\begin{align}
+\sum_{x \in X}^{}{deg(x)} &= 2 + 2 + 1 + 0 + 1 \\
+&=6
+\end{align}
+
+\begin{align}
+\sum_{y \in Y}^{}{deg(y)} &= 2 + 2 + 2 \\
+&=6
+\end{align}
+
+\begin{equation}
+\sum_{x \in X}^{}{deg(x)} = \sum_{y \in Y}^{}{deg(y)}
+\end{equation}
+
+### Exercise 16
+a. $s$
+b. $r$
+c. $s*r$
+d. Every $x$ is related to every $y$
+e. $K_{1, 5}$ is connected because every vertex is connected to $x_1$, $K_{1, 5}$ has no cyles because any cycle would need two $X$-vertices.
+f. If $r \geq s \geq 2$, there is a cycle $x_1y_1x_2y_2x_1$
+
+### Exercise 17
+
+![](images/Sheet02Ex02.pdf)
+
+- $\{000, 110, 011, 101\} = E$ vertices with even number of 1
+- $\{111, 001, 010, 100\} = O$ vertices with odd number of 1
+
+
+### Exercise 18
+
+![](images/Exercise0218.pdf)
+
+We use Hall's theorem and therefore we need a subset $A \subseteq X$ such that $|N(A)| < |A|$
+
+Choose: $A = \{x_1, x_2, x_3, x_4\}$ 
+
+$\Rightarrow N(A) = \{y_2, y_4, y_5\}$ 
+
+$\Rightarrow$ No complete matching
+
+
+### Exercise 19
+
+![](images/Exercise0219_1.pdf)
+
+1. $Z = \{2, 4\}$
+    a. Choose $2 \in Z$
+    b. $3 \mapsto c \stackrel{\text{alternating}}{\mapsto} 1 \quad \Rightarrow \text{not M-alternating path}$ 
+
+2. $Z = \{4\}$
+    a. Choose $4 \in Z$
+    b. $4 \mapsto c \stackrel{\text{alternating}}{\mapsto} 1 \quad \Rightarrow \text{not M-alternating path}$  
+    
+3. $4 \mapsto e \stackrel{\text{alternating}}{\mapsto} 5 \mapsto a \quad \Rightarrow \text{M-alternating path}$  with new $M = \{\{4, e\}, \{5, a\}, \{1, c\}, \{3, b\}\}$
+
+![](images/Exercise0219_2.pdf)
+
+4.  $Z = \{2\}$
+    a. Choose $2 \in Z$
+    b. $2 \mapsto c \stackrel{\text{alternating}}{\mapsto} 1 \quad \Rightarrow \text{not M-alternating path}$ 
+
+5. $Z = \emptyset \quad \Rightarrow$ STOP with M being maximal.  
+
+### Exercise 20
+
+#### 1) Admissible flow $F$
+![](images/Exercise0220_1.pdf)
+
+$D_f:$
+
+![](images/Exercise0220_2.pdf)
+
+Augmenting path:
+
+1. $s \stackrel{7}{\mapsto} c \stackrel{3}{\mapsto} b \stackrel{1}{\mapsto} c \stackrel{2}{\mapsto} d \stackrel{3}{\mapsto} t$ 
+2. $\alpha_1 = min\{7, 3, 2, 3\}$ 
+3. $\alpha_2 = min\{1\}$ 
+4. $\Rightarrow \delta = 1$ 
+
+
+#### 2) Admissible flow $F'$
+![](images/Exercise0220_3.pdf)
+
+$D_f:$
+
+![](images/Exercise0220_4.pdf)
+
+Augmenting path:
+
+1. $s \stackrel{6}{\mapsto} c \stackrel{1}{\mapsto} d \stackrel{2}{\mapsto} c$ 
+2. $\alpha_1 = min\{6, 1, 2\}$ 
+4. $\Rightarrow \delta = 1$ 
+
+
+#### 2) Admissible flow $F''$
+![](images/Exercise0220_5.pdf)
+
+$D_f:$
+
+![](images/Exercise0220_6.pdf)
+
+Augemnting path:
+
+
+- There is no augmenting path, and we end with $w(f) = 5$.
+- For the minimum cut, we need 
+    - $S_f = \{s, b, c\}$
+    - $T_f=\{t, a, d\}$
+    - $C(S_f, T_f) = C((s, a)) + C((c, d)) + C((b, t)) = 2 + 2 + 1 = 5$
+
+
+
